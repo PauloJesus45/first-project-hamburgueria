@@ -5,7 +5,7 @@ import {v4} from "uuid"
 const app = Express()
 const port = 3001
 app.use(cors())
-const ordes = []
+const orders = []
 
 const ckeckId = (request, response, next) => {
      const { id } = request.params
