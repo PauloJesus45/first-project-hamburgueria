@@ -9,7 +9,7 @@ const ordes = []
 
 const ckeckId = (request, response, next) => {
      const { id } = request.params
-     const index = orders.finIndex(order => order.id === id)
+     const index = orders.findIndex(order => order.id === id)
 
      if (index <0){
         return response.status(404).json({ erro: "Order Not Found" })
