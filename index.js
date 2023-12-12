@@ -9,8 +9,8 @@ app.use(cors())
 const orders = []
 
 const ckeckId = (request, response, next) => {
-    const { id } = request.params
-    const index = orders.findIndex(order => order.id === id)
+     const { id } = request.params
+     const index = orders.finIndex(order => order.id === id)
 
     if (index < 0) {
         return response.status(404).json({ erro: "Order Not Found" })
@@ -44,7 +44,7 @@ app.get("/order", url, (request, response) => {
     return response.json(orders)
 })
 
-app.put("/orders/:id", ckeckId, url, (request, response) => {
+app.put('/orders/:id', checkId, url, (request, response) => {
     const { order, clientName, price, status } = request.body
     const id = request.orderId
     const index = request.orderIndex
@@ -56,7 +56,7 @@ app.put("/orders/:id", ckeckId, url, (request, response) => {
     return response.status(201).json(updateOrder)
 })
 
-app.delete("/order/:id", ckeckId, (request, response) => {
+app.delete('/order/:id', checkId, (request, response) => {
     const index = request.orderIndex
 
     orders.splice(index, 1)
@@ -64,14 +64,14 @@ app.delete("/order/:id", ckeckId, (request, response) => {
     return response.status(204).json()
 })
 
-app.get("/order/:id", ckeckId, url, (request, response) => {
+app.get('/order/:id', checkId, url, (request, response) => {
     const { id } = request.params
     const index = orders.findIndex(order => order.id === id)
 
     return response.json(orders[index])
 })
 
-app.patch("/order/:id", ckeckId, url, (request, response) => {
+app.patch('/order/:id', checkId, url, (request, response) => {
     const { id } = request.params
     const index = orders.findIndex(order => order.id === id)
     orders[index].status = "Pronto"
